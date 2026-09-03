@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crema al caffè e coccole! ☕💕</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body data-choice="20">
+    <!-- Background decorativo con cuori fluttuanti -->
+    <div class="floating-hearts">
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+    </div>
+
+    <!-- Container principale -->
+    <div class="container">
+        <div class="page-content">
+            <div class="bonus-message coffee-bonus">
+                <div class="bonus-emoji">☕</div>
+                <h2>Mi devi 10 minuti di coccole e una crema al caffe' per farti perdonare. 💕</h2>
+                <p class="bonus-text">La tua risposta è stata ricevuta.</p>
+                <div class="loading-dots">
+                    <span></span><span></span><span></span>
+                </div>
+                <p class="sending-text">Sto inviando la tua risposta...</p>
+                <p class="email-status hidden" id="emailStatus" role="alert"></p>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="../js/email.js"></script>
+</body>
+</html>

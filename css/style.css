@@ -1,0 +1,335 @@
+/* ============================================
+   STILI GLOBALI E RESET
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #FFF8F3 0%, #FFE9F3 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    color: #8B8680;
+}
+
+/* ============================================
+   CUORI FLUTTUANTI IN BACKGROUND
+   ============================================ */
+
+@keyframes heartFloat {
+    0% {
+        opacity: 0.3;
+        transform: translateY(100vh) rotate(0deg) translateX(0);
+    }
+    50% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100vh) rotate(360deg) translateX(50px);
+    }
+}
+
+.floating-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    font-size: 2rem;
+    animation: heartFloat 8s infinite ease-in;
+}
+
+.heart::before {
+    content: '💕';
+}
+
+.heart:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+    animation-duration: 8s;
+}
+
+.heart:nth-child(2) {
+    left: 30%;
+    animation-delay: 2s;
+    animation-duration: 10s;
+}
+
+.heart:nth-child(3) {
+    left: 60%;
+    animation-delay: 4s;
+    animation-duration: 9s;
+}
+
+.heart:nth-child(4) {
+    left: 80%;
+    animation-delay: 6s;
+    animation-duration: 11s;
+}
+
+/* ============================================
+   CONTAINER PRINCIPALE
+   ============================================ */
+
+.container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* ============================================
+   SCHERMATE
+   ============================================ */
+
+.screen {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.95);
+    transition: all 0.5s ease-in-out;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+}
+
+.screen.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    position: relative;
+}
+
+/* ============================================
+   TITOLO E SOTTOTITOLO
+   ============================================ */
+
+.title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #E63946;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(230, 57, 70, 0.1);
+    animation: titleBounce 1s ease-out;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #D4A574;
+    margin-bottom: 50px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+@keyframes titleBounce {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   CONTENITORE BOTTONI
+   ============================================ */
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 300px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+/* ============================================
+   BOTTONI AMORE - ANIMAZIONI FLUIDE
+   ============================================ */
+
+@keyframes fluidSlide {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 1;
+        pointer-events: none;
+    }
+    100% {
+        transform: translateY(150vh) translateX(0);
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+@keyframes subtlePulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+@keyframes ripple {
+    0% {
+        box-shadow: 0 0 0 0 rgba(230, 57, 70, 0.7);
+    }
+    100% {
+        box-shadow: 0 0 0 20px rgba(230, 57, 70, 0);
+    }
+}
+
+.love-button {
+    width: 180px;
+    padding: 15px 30px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(230, 57, 70, 0.15);
+    background: linear-gradient(135deg, #FFB4D9 0%, #FFE9F3 100%);
+    color: #E63946;
+    position: relative;
+    overflow: hidden;
+    will-change: transform;
+    transition: filter 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+/* I due percorsi principali sono sempre disponibili */
+.love-button {
+    opacity: 1;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+/* I due percorsi principali hanno hover speciale */
+.love-button.btn-20:hover,
+.love-button.btn-100:hover {
+    animation: subtlePulse 0.6s ease-in-out;
+    box-shadow: 0 12px 32px rgba(230, 57, 70, 0.25);
+}
+
+.love-button.btn-20:active,
+.love-button.btn-100:active {
+    animation: ripple 0.6s ease-out;
+}
+
+.intermediate-button {
+    opacity: 0.7;
+}
+
+.percentage {
+    display: block;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+/* ============================================
+   SCHERMATE - RIMOSSE (ora in pages/)
+   ============================================ */
+
+/* Le schermate modali/bonus sono ora nelle pagine separate */
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .love-button {
+        width: 150px;
+        padding: 12px 24px;
+        font-size: 1.1rem;
+    }
+
+    .modal-content {
+        padding: 30px;
+    }
+
+    .restaurant-options {
+        grid-template-columns: 1fr;
+    }
+
+    .bonus-emoji {
+        font-size: 3rem;
+    }
+
+    .bonus-message h2 {
+        font-size: 1.5rem;
+    }
+
+    .checkmark {
+        font-size: 3rem;
+    }
+
+    .confirmation h2 {
+        font-size: 1.5rem;
+    }
+
+    .heart {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 30px;
+    }
+
+    .buttons-container {
+        gap: 15px;
+        max-width: 250px;
+    }
+
+    .love-button {
+        width: 120px;
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+
+    .modal-content {
+        padding: 20px;
+    }
+
+    .bonus-message {
+        padding: 40px 20px;
+    }
+
+    .confirmation {
+        padding: 40px 20px;
+    }
+}

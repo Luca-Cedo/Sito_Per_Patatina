@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quanto mi ami? 💕</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+    <!-- Background decorativo con cuori fluttuanti -->
+    <div class="floating-hearts">
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+    </div>
+
+    <!-- Container principale -->
+    <div class="container">
+        <!-- Schermata domanda iniziale -->
+        <div id="questionScreen" class="screen active">
+            <h1 class="title">Quanto mi ami? 💕</h1>
+            <p class="subtitle">Scegli la tua ricompensa...</p>
+
+            <div class="buttons-container">
+                <a class="love-button btn-20" href="pages/coffee.html">
+                    <span class="percentage">20%</span>
+                </a>
+                <button class="love-button intermediate-button" id="btn-40" type="button">
+                    <span class="percentage">40%</span>
+                </button>
+                <button class="love-button intermediate-button" id="btn-60" type="button">
+                    <span class="percentage">60%</span>
+                </button>
+                <button class="love-button intermediate-button" id="btn-80" type="button">
+                    <span class="percentage">80%</span>
+                </button>
+                <a class="love-button btn-100" href="pages/choice.html">
+                    <span class="percentage">100%</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- EmailJS Library (DEVE essere prima di app.js) -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <script src="js/animations.js"></script>
+    <!-- Logica EmailJS (DEVE essere dopo la libreria EmailJS) -->
+    <script src="js/email.js"></script>
+</body>
+</html>
